@@ -5,7 +5,7 @@ from random import randrange
 from flask import Flask
 import logging
 
-# Constants
+## Constants
 SUCCESS_RATE = int(os.getenv('SUCCESS_RATE', 100))
 HOST = os.getenv('HOST', '0.0.0.0')
 PORT = int(os.getenv('PORT', 8080))
