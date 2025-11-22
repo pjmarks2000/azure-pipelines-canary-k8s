@@ -88,3 +88,5 @@ stages:
               azureResourceGroup: 'Aksdemo1'
               kubernetesCluster: 'kelljonsAKS'
               manifests: '$(Pipeline.Workspace)/misc/*'
+
+
