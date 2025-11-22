@@ -56,19 +56,19 @@ stages:
             inputs:
               action: 'createSecret'
               connectionType: 'azureResourceManager'
-              azureSubscriptionConnection: 'azure-pipelines-canary-sc'
+              azureSubscriptionConnection: 'azure-pipelines-canary-acr'
               azureResourceGroup: 'Aksdemo1'
               kubernetesCluster: 'kelljonsAKS'
               secretType: 'dockerRegistry'
               secretName: 'my-acr-secret'
-              dockerRegistryEndpoint: 'azure-pipelines-canary-acr'
+              dockerRegistryEndpoint: 'azure-pipelines-canary-acr1'
 
           - task: KubernetesManifest@1
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: 'deploy'
               connectionType: 'azureResourceManager'
-              azureSubscriptionConnection: 'azure-pipelines-canary-sc'
+              azureSubscriptionConnection: 'aks-connection'
               azureResourceGroup: 'Aksdemo1'
               kubernetesCluster: 'kelljonsAKS'
               strategy: 'canary'
@@ -84,7 +84,7 @@ stages:
             inputs:
               action: 'deploy'
               connectionType: 'azureResourceManager'
-              azureSubscriptionConnection: 'azure-pipelines-canary-sc'
+              azureSubscriptionConnection: 'aks-connection'
               azureResourceGroup: 'Aksdemo1'
               kubernetesCluster: 'kelljonsAKS'
               manifests: '$(Pipeline.Workspace)/misc/*'
